@@ -541,7 +541,7 @@ def _login_form():
                              type="password", key="li_pass")
     st.markdown("<br>", unsafe_allow_html=True)
 
-    if st.button("🔐  Sign In", width="stretch", key="btn_login"):
+    if st.button("🔐  Sign In", key="btn_login"):
         if not email or not password:
             st.error("Please fill in all fields.")
             return
@@ -589,7 +589,7 @@ def _signup_form():
                              type="password", key="su_confirm")
     st.markdown("<br>", unsafe_allow_html=True)
 
-    if st.button("📝  Create Account", width="stretch", key="btn_signup"):
+    if st.button("📝  Create Account", key="btn_signup"):
         if not name or not email or not password or not confirm:
             st.error("Please fill in all fields.")
             return
@@ -659,7 +659,7 @@ def render_sidebar():
                 font-weight:{'600' if active else '400'};
                 font-size:0.92rem;
             ">{label}</div></a>""", unsafe_allow_html=True)
-            if st.button(label, key=f"nav_{page}", width="stretch",
+            if st.button(label, key=f"nav_{page}",
                          help=f"Go to {page}"):
                 st.session_state["page"] = page
                 st.rerun()
@@ -682,7 +682,7 @@ def render_sidebar():
         """, unsafe_allow_html=True)
 
         st.markdown("<br>", unsafe_allow_html=True)
-        if st.button("🔐  Logout", width="stretch"):
+        if st.button("🔐  Logout"):
             for key in ["authenticated", "display_name", "is_admin", "models", "page", "auth_tab"]:
                 st.session_state.pop(key, None)
             st.rerun()
