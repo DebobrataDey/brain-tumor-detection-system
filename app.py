@@ -504,10 +504,10 @@ def auth_page():
 
     col_gap1, col_login, col_signup, col_gap2 = st.columns([2, 1, 1, 2])
     with col_login:
-        if st.button("🔐  Login", width="stretch", key="tab_login"):
+        if st.button("🔐  Login", key="tab_login"):
             st.session_state["auth_tab"] = "Login"
     with col_signup:
-        if st.button("📝  Sign Up", width="stretch", key="tab_signup"):
+        if st.button("📝  Sign Up", key="tab_signup"):
             st.session_state["auth_tab"] = "Signup"
 
     st.markdown("<br>", unsafe_allow_html=True)
@@ -877,7 +877,6 @@ def page_diagnosis():
                 data=pdf_bytes,
                 file_name=f"neuroscan_{patient_id}_{datetime.date.today()}.{ext}",
                 mime=mime,
-                width="stretch",
             )
 
         elif uploaded and not (patient_name and patient_id):
