@@ -980,7 +980,7 @@ def page_history():
 
     display = filtered[["patient_name","patient_id","diagnosis","confidence","risk_level","date"]].copy()
     display.columns = ["Patient","ID","Diagnosis","Confidence (%)","Risk","Date"]
-    st.dataframe(display, use_container_width="True", hide_index=True)
+    st.dataframe(display, use_container_width= True, hide_index=True)
 
     st.markdown("<br>", unsafe_allow_html=True)
 
