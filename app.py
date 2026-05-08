@@ -300,18 +300,55 @@ IMG_SIZE = (224, 224)
 @st.cache_resource(show_spinner=False)
 def load_models():
     models = {}
+
     try:
         import tensorflow as tf
-        BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+        import gdown
+        import os
+
+        BASE_DIR = os.path.dirname(os.path.abspath(file))
         models_dir = os.path.join(BASE_DIR, "models")
-        cnn_path    = os.path.join(models_dir, "cnn_model.h5")
+
+        os.makedirs(models_dir, exist_ok=True)
+
+        cnn_path = os.path.join(models_dir, "cnn_model.h5")
         resnet_path = os.path.join(models_dir, "resnet50_model.h5")
+
+        # -------------------------------
+        # DOWNLOAD CNN MODEL IF MISSING
+        # -------------------------------
+        if not os.path.exists(cnn_path):
+            gdown.download(
+                "https://drive.google.com/uc?id=1Ovkg2ezfGDqpbEjcqAsbT1-KoYsZM3IW",
+                cnn_path,
+                quiet=False
+            )
+
+        # -----------------------------------
+        # DOWNLOAD RESNET50 MODEL IF MISSING
+        # -----------------------------------
+        if not os.path.exists(resnet_path):
+            gdown.download(
+                "https://drive.google.com/uc?id=1yQXu4eRKFBcwB6af1NgIOsHFt0NqQ7eh",
+                resnet_path,
+                quiet=False
+            )
+
+        # -------------------
+        # LOAD CNN MODEL
+        # -------------------
         if os.path.exists(cnn_path):
             models["cnn"] = tf.keras.models.load_model(cnn_path)
+
+        # -----------------------
+        # LOAD RESNET50 MODEL
+        # -----------------------
         if os.path.exists(resnet_path):
             models["resnet"] = tf.keras.models.load_model(resnet_path)
+
     except Exception as e:
         st.session_state["model_error"] = str(e)
+
     return models
 
 
