@@ -783,7 +783,7 @@ def page_dashboard():
             ax.text(bar.get_x() + bar.get_width()/2, bar.get_height() + 0.1,
                     str(int(bar.get_height())), ha="center", color="#1a2332", fontsize=8)
         plt.tight_layout()
-        st.pyplot(fig, width="stretch")
+        st.pyplot(fig)
         plt.close()
 
     with col2:
