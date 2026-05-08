@@ -319,9 +319,10 @@ def load_models():
         # -------------------------------
         if not os.path.exists(cnn_path):
             gdown.download(
-                "https://drive.google.com/uc?id=1Ovkg2ezfGDqpbEjcqAsbT1-KoYsZM3IW",
-                cnn_path,
-                quiet=False
+                id="1Ovkg2ezfGDqpbEjcqAsbT1-KoYsZM3IW",
+                output=cnn_path,
+                quiet=False,
+                fuzzy=True
             )
 
         # -----------------------------------
@@ -329,9 +330,10 @@ def load_models():
         # -----------------------------------
         if not os.path.exists(resnet_path):
             gdown.download(
-                "https://drive.google.com/uc?id=1yQXu4eRKFBcwB6af1NgIOsHFt0NqQ7eh",
-                resnet_path,
-                quiet=False
+                id="1yQXu4eRKFBcwB6af1NgIOsHFt0NqQ7eh",
+                output=resnet_path,
+                quiet=False,
+                fuzzy=True
             )
 
         # -------------------
