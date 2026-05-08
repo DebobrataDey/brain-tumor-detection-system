@@ -306,7 +306,7 @@ def load_models():
         import gdown
         import os
 
-        BASE_DIR = os.path.dirname(os.path.abspath(file))
+        BASE_DIR = os.path.dirname(os.path.abspath(__file__))
         models_dir = os.path.join(BASE_DIR, "models")
 
         os.makedirs(models_dir, exist_ok=True)
