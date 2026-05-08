@@ -7,3 +7,4 @@ Pillow==11.2.1
 reportlab==4.4.0
 protobuf==5.29.4
 h5py==3.13.0
+gdown
