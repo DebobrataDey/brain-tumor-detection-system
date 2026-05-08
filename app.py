@@ -350,7 +350,7 @@ def load_models():
 
     except Exception as e:
         st.session_state["model_error"] = str(e)
-
+        st.error(f"Model Loading Error: {e}")
     return models
 
 
