@@ -812,7 +812,7 @@ def page_dashboard():
     section_header("🕒 Recent Activity", "Latest patient scans")
     display_df = df.head(10)[["patient_name","patient_id","diagnosis","confidence","risk_level","date"]].copy()
     display_df.columns = ["Patient","ID","Diagnosis","Confidence (%)","Risk","Date"]
-    st.dataframe(display_df, width="stretch", hide_index=True)
+    st.dataframe(display_df, use_container_width=True, hide_index=True)
 
 # ─────────────────────────────────────────────
 # DIAGNOSIS PAGE
@@ -847,7 +847,7 @@ def page_diagnosis():
 
         if uploaded:
             img = Image.open(uploaded)
-            st.image(img, caption="Uploaded MRI Scan", width="stretch",
+            st.image(img, caption="Uploaded MRI Scan", use_container_width=True,
                      output_format="JPEG")
 
     with col_right:
@@ -980,7 +980,7 @@ def page_history():
 
     display = filtered[["patient_name","patient_id","diagnosis","confidence","risk_level","date"]].copy()
     display.columns = ["Patient","ID","Diagnosis","Confidence (%)","Risk","Date"]
-    st.dataframe(display, width="stretch", hide_index=True)
+    st.dataframe(display, use_container_width="True", hide_index=True)
 
     st.markdown("<br>", unsafe_allow_html=True)
 
@@ -1004,7 +1004,7 @@ def page_history():
         for t in texts:  t.set_color("#475569"); t.set_fontsize(9)
         for a in autos:  a.set_color("#1a2332"); a.set_fontsize(8)
         plt.tight_layout()
-        st.pyplot(fig, width="stretch")
+        st.pyplot(fig)
         plt.close()
 
     with col2:
@@ -1022,7 +1022,7 @@ def page_history():
         ax2.tick_params(colors="#64748b", labelsize=9)
         ax2.set_xlabel("Avg Confidence (%)", color="#64748b", fontsize=9)
         plt.tight_layout()
-        st.pyplot(fig2, width="stretch")
+        st.pyplot(fig2, use_container_width=True)
         plt.close()
 
 # ─────────────────────────────────────────────
