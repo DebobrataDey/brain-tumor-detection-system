@@ -11,6 +11,8 @@ import io
 import base64
 import datetime
 import hashlib
+import matplotlib
+matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import matplotlib.cm as cm
 from PIL import Image
