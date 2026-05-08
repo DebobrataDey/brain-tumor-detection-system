@@ -340,13 +340,13 @@ def load_models():
         # LOAD CNN MODEL
         # -------------------
         if os.path.exists(cnn_path):
-            models["cnn"] = tf.keras.models.load_model(cnn_path)
+            models["cnn"] = tf.keras.models.load_model(cnn_path,compile=False)
 
         # -----------------------
         # LOAD RESNET50 MODEL
         # -----------------------
         if os.path.exists(resnet_path):
-            models["resnet"] = tf.keras.models.load_model(resnet_path)
+            models["resnet"] = tf.keras.models.load_model(resnet_path,compile=False)
 
     except Exception as e:
         st.session_state["model_error"] = str(e)
