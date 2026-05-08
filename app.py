@@ -805,7 +805,7 @@ def page_dashboard():
         for a in autos:  a.set_color("#1a2332"); a.set_fontsize(8)
         ax2.set_facecolor("#ffffff")
         plt.tight_layout()
-        st.pyplot(fig2, width="stretch")
+        st.pyplot(fig2)
         plt.close()
 
     st.markdown("<br>", unsafe_allow_html=True)
